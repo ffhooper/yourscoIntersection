@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
 struct light {
-    var postion: String?
-     
+    var straightColor: UIColor?
+    var rightColor: UIColor?
+    var leftColor: UIColor?
+    
 }
