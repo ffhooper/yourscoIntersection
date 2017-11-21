@@ -50,21 +50,29 @@ class ViewController: UIViewController {
         print(counter)
         switch counter {
         case 1:
-            setTrafficRightTurn(northDirection: true)
+            // Set Traffic to Left Turn (north bound: true)
+            updateLights(ns: UIColor.red, nr: UIColor.red, nl: UIColor.green, es: UIColor.red, er: UIColor.green, el: UIColor.red, ss: UIColor.red, sr: UIColor.red, sl: UIColor.green, ws: UIColor.red, wr: UIColor.green, wl: UIColor.red)
         case 5:
-            setTrafficRightTurnYellow(northDirection: true)
+            // Set Traffic to Left Turn Yellow (north bound: true)
+            updateLights(ns: UIColor.red, nr: UIColor.red, nl: UIColor.yellow, es: UIColor.red, er: UIColor.yellow, el: UIColor.red, ss: UIColor.red, sr: UIColor.red, sl: UIColor.yellow, ws: UIColor.red, wr: UIColor.yellow, wl: UIColor.red)
         case 8:
-            setTrafficStraight(northDirection: true)
+            // Set Traffic to Straight (north bound: true)
+            updateLights(ns: UIColor.green, nr: UIColor.orange, nl: UIColor.red, es: UIColor.red, er: UIColor.orange, el: UIColor.red, ss: UIColor.green, sr: UIColor.orange, sl: UIColor.red, ws: UIColor.red, wr: UIColor.orange, wl: UIColor.red)
         case 14:
-            setTrafficStraightYellow(northDirection: true)
+            // Set Traffic to Straight Yellow (north bound: true)
+            updateLights(ns: UIColor.yellow, nr: UIColor.yellow, nl: UIColor.red, es: UIColor.red, er: UIColor.yellow, el: UIColor.red, ss: UIColor.yellow, sr: UIColor.yellow, sl: UIColor.red, ws: UIColor.red, wr: UIColor.yellow, wl: UIColor.red)
         case 17:
-            setTrafficRightTurn(northDirection: false)
+            // Set Traffic to Left Turn (north bound: false)
+            updateLights(ns: UIColor.red, nr: UIColor.green, nl: UIColor.red, es: UIColor.red, er: UIColor.red, el: UIColor.green, ss: UIColor.red, sr: UIColor.green, sl: UIColor.red, ws: UIColor.red, wr: UIColor.red, wl: UIColor.green)
         case 21:
-            setTrafficStraightYellow(northDirection: false)
+            // Set Traffic to Left Turn Yellow (north bound: false)
+            updateLights(ns: UIColor.red, nr: UIColor.yellow, nl: UIColor.red, es: UIColor.red, er: UIColor.red, el: UIColor.yellow, ss: UIColor.red, sr: UIColor.yellow, sl: UIColor.red, ws: UIColor.red, wr: UIColor.red, wl: UIColor.yellow)
         case 24:
-            setTrafficStraight(northDirection: false)
+            // Set Traffic to Straight (north bound: false)
+            updateLights(ns: UIColor.red, nr: UIColor.orange, nl: UIColor.red, es: UIColor.green, er: UIColor.orange, el: UIColor.red, ss: UIColor.red, sr: UIColor.orange, sl: UIColor.red, ws: UIColor.green, wr: UIColor.orange, wl: UIColor.red)
         case 30:
-            setTrafficStraightYellow(northDirection: false)
+            // Set Traffic to Straight Yellow (north bound: false)
+            updateLights(ns: UIColor.red, nr: UIColor.yellow, nl: UIColor.red, es: UIColor.yellow, er: UIColor.yellow, el: UIColor.red, ss: UIColor.red, sr: UIColor.yellow, sl: UIColor.red, ws: UIColor.yellow, wr: UIColor.yellow, wl: UIColor.red)
         case 33:
             resetCycle()
         default:
@@ -73,100 +81,40 @@ class ViewController: UIViewController {
         counter += 1
     }
     
-    func setTrafficStraight(northDirection: Bool) {
-        if northDirection {
-            northLight = light(straightColor: UIColor.green, rightColor: UIColor.orange, leftColor: UIColor.red)
-            southLight = light(straightColor: UIColor.green, rightColor: UIColor.orange, leftColor: UIColor.red)
-            eastLight = light(straightColor: UIColor.red, rightColor: UIColor.orange, leftColor: UIColor.red)
-            westLight = light(straightColor: UIColor.red, rightColor: UIColor.orange, leftColor: UIColor.red)
-        } else {
-            eastLight = light(straightColor: UIColor.green, rightColor: UIColor.orange, leftColor: UIColor.red)
-            westLight = light(straightColor: UIColor.green, rightColor: UIColor.orange, leftColor: UIColor.red)
-            northLight = light(straightColor: UIColor.red, rightColor: UIColor.orange, leftColor: UIColor.red)
-            southLight = light(straightColor: UIColor.red, rightColor: UIColor.orange, leftColor: UIColor.red)
-        }
-        updateLights()
-    }
     
-    func setTrafficStraightYellow(northDirection: Bool) {
-        if northDirection {
-            northLight = light(straightColor: UIColor.yellow, rightColor: UIColor.yellow, leftColor: UIColor.red)
-            southLight = light(straightColor: UIColor.yellow, rightColor: UIColor.yellow, leftColor: UIColor.red)
-            eastLight = light(straightColor: UIColor.red, rightColor: UIColor.yellow, leftColor: UIColor.red)
-            westLight = light(straightColor: UIColor.red, rightColor: UIColor.yellow, leftColor: UIColor.red)
-        } else {
-            eastLight = light(straightColor: UIColor.yellow, rightColor: UIColor.yellow, leftColor: UIColor.red)
-            westLight = light(straightColor: UIColor.yellow, rightColor: UIColor.yellow, leftColor: UIColor.red)
-            northLight = light(straightColor: UIColor.red, rightColor: UIColor.yellow, leftColor: UIColor.red)
-            southLight = light(straightColor: UIColor.red, rightColor: UIColor.yellow, leftColor: UIColor.red)
-        }
-        updateLights()
-    }
-    
-    func setTrafficRightTurn(northDirection: Bool) {
-        if northDirection {
-            northLight = light(straightColor: UIColor.red, rightColor: UIColor.red, leftColor: UIColor.green)
-            southLight = light(straightColor: UIColor.red, rightColor: UIColor.red, leftColor: UIColor.green)
-            eastLight = light(straightColor: UIColor.red, rightColor: UIColor.green, leftColor: UIColor.red)
-            westLight = light(straightColor: UIColor.red, rightColor: UIColor.green, leftColor: UIColor.red)
-        } else {
-            eastLight = light(straightColor: UIColor.red, rightColor: UIColor.red, leftColor: UIColor.green)
-            westLight = light(straightColor: UIColor.red, rightColor: UIColor.red, leftColor: UIColor.green)
-            northLight = light(straightColor: UIColor.red, rightColor: UIColor.green, leftColor: UIColor.red)
-            southLight = light(straightColor: UIColor.red, rightColor: UIColor.green, leftColor: UIColor.red)
-        }
-        updateLights()
-    }
-    
-    func setTrafficRightTurnYellow(northDirection: Bool) {
-        if northDirection {
-            northLight = light(straightColor: UIColor.red, rightColor: UIColor.red, leftColor: UIColor.yellow)
-            southLight = light(straightColor: UIColor.red, rightColor: UIColor.red, leftColor: UIColor.yellow)
-            eastLight = light(straightColor: UIColor.red, rightColor: UIColor.yellow, leftColor: UIColor.red)
-            westLight = light(straightColor: UIColor.red, rightColor: UIColor.yellow, leftColor: UIColor.red)
-        } else {
-            eastLight = light(straightColor: UIColor.red, rightColor: UIColor.red, leftColor: UIColor.yellow)
-            westLight = light(straightColor: UIColor.red, rightColor: UIColor.red, leftColor: UIColor.yellow)
-            northLight = light(straightColor: UIColor.red, rightColor: UIColor.yellow, leftColor: UIColor.red)
-            southLight = light(straightColor: UIColor.red, rightColor: UIColor.yellow, leftColor: UIColor.red)
-        }
-        updateLights()
-    }
-    
-    
-    func updateLights() {
-        guard let north = northLight else {
-            emergencyStop()
-            return
-        }
-        guard let east = eastLight else {
-            emergencyStop()
-            return
-        }
-        guard let south = southLight else {
-            emergencyStop()
-            return
-        }
-        guard let west = westLight else {
-            emergencyStop()
-            return
-        }
+    func updateLights(ns: UIColor, nr: UIColor, nl: UIColor, es: UIColor, er: UIColor, el: UIColor, ss: UIColor, sr: UIColor, sl: UIColor, ws: UIColor, wr: UIColor, wl: UIColor) {
+//        guard let north = northLight else {
+//            emergencyStop()
+//            return
+//        }
+//        guard let east = eastLight else {
+//            emergencyStop()
+//            return
+//        }
+//        guard let south = southLight else {
+//            emergencyStop()
+//            return
+//        }
+//        guard let west = westLight else {
+//            emergencyStop()
+//            return
+//        }
         
-        NorthStraight.backgroundColor = north.straightColor
-        NorthRight.backgroundColor = north.rightColor
-        NorthLeft.backgroundColor = north.leftColor
+        NorthStraight.backgroundColor = ns
+        NorthRight.backgroundColor = nr
+        NorthLeft.backgroundColor = nl
         
-        EastStraight.backgroundColor = east.straightColor
-        EastRight.backgroundColor = east.rightColor
-        EastLeft.backgroundColor = east.leftColor
+        EastStraight.backgroundColor = es
+        EastRight.backgroundColor = er
+        EastLeft.backgroundColor = el
         
-        SouthStraight.backgroundColor = south.straightColor
-        SouthRight.backgroundColor = south.rightColor
-        SouthLeft.backgroundColor = south.leftColor
+        SouthStraight.backgroundColor = ss
+        SouthRight.backgroundColor = sr
+        SouthLeft.backgroundColor = sl
         
-        WestStraight.backgroundColor = west.straightColor
-        WestRight.backgroundColor = west.rightColor
-        WestLeft.backgroundColor = west.leftColor
+        WestStraight.backgroundColor = ws
+        WestRight.backgroundColor = wr
+        WestLeft.backgroundColor = wl
     }
     
     func emergencyStop() {
