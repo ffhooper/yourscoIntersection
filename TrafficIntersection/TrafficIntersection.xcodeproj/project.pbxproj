@@ -14,6 +14,7 @@
 		C94440591FC3E20200B6E384 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94440571FC3E20200B6E384 /* LaunchScreen.storyboard */; };
 		C94440641FC3E20200B6E384 /* TrafficIntersectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94440631FC3E20200B6E384 /* TrafficIntersectionTests.swift */; };
 		C944406F1FC3E20200B6E384 /* TrafficIntersectionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944406E1FC3E20200B6E384 /* TrafficIntersectionUITests.swift */; };
+		C944407D1FC3ED0A00B6E384 /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944407C1FC3ED0A00B6E384 /* Light.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C944406A1FC3E20200B6E384 /* TrafficIntersectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrafficIntersectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C944406E1FC3E20200B6E384 /* TrafficIntersectionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficIntersectionUITests.swift; sourceTree = "<group>"; };
 		C94440701FC3E20200B6E384 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C944407C1FC3ED0A00B6E384 /* Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				C944404E1FC3E20200B6E384 /* AppDelegate.swift */,
 				C94440501FC3E20200B6E384 /* ViewController.swift */,
+				C944407C1FC3ED0A00B6E384 /* Light.swift */,
 				C94440521FC3E20200B6E384 /* Main.storyboard */,
 				C94440551FC3E20200B6E384 /* Assets.xcassets */,
 				C94440571FC3E20200B6E384 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C944407D1FC3ED0A00B6E384 /* Light.swift in Sources */,
 				C94440511FC3E20200B6E384 /* ViewController.swift in Sources */,
 				C944404F1FC3E20200B6E384 /* AppDelegate.swift in Sources */,
 			);
