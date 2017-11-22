@@ -382,16 +382,39 @@
                                     <constraint firstAttribute="height" constant="185" id="qZj-4J-Tja"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXO-ND-2N1">
+                                <rect key="frame" x="186.5" y="491" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LaM-ce-ufg"/>
+                                    <constraint firstAttribute="width" constant="30" id="qlp-uv-xCi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cars waiting to go straight." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmr-WP-ZJ6">
+                                <rect key="frame" x="89" y="526" width="225" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="IY0-OF-aj6"/>
+                                    <constraint firstAttribute="height" constant="32" id="e13-Bb-1EA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.076666451990604401" green="0.29443234205245972" blue="0.095685236155986786" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="chE-o0-uJX" firstAttribute="top" secondItem="eqe-yp-kwr" secondAttribute="bottom" constant="20" id="0xq-If-rxE"/>
+                            <constraint firstItem="rmr-WP-ZJ6" firstAttribute="centerX" secondItem="pXO-ND-2N1" secondAttribute="centerX" id="2YQ-fs-PzU"/>
                             <constraint firstItem="Xcc-Pv-1ev" firstAttribute="leading" secondItem="QDs-Ry-z4o" secondAttribute="trailing" id="3GF-oF-s5b"/>
                             <constraint firstItem="chE-o0-uJX" firstAttribute="leading" secondItem="AJp-th-xGi" secondAttribute="trailing" id="4Ol-KX-7YI"/>
                             <constraint firstItem="eqe-yp-kwr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="70f-gH-DKg"/>
+                            <constraint firstItem="pXO-ND-2N1" firstAttribute="trailing" secondItem="o7O-La-GqS" secondAttribute="trailing" id="Fs8-BU-167"/>
                             <constraint firstItem="rK4-aO-vmB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ILa-p6-vSA"/>
                             <constraint firstItem="chE-o0-uJX" firstAttribute="top" secondItem="hV6-g7-40K" secondAttribute="bottom" id="Ivv-fw-Anp"/>
                             <constraint firstItem="hV6-g7-40K" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Jmq-bN-aUF"/>
+                            <constraint firstItem="pXO-ND-2N1" firstAttribute="top" secondItem="lVB-uz-H0m" secondAttribute="bottom" constant="7.5" id="LIe-i5-30K"/>
                             <constraint firstItem="lVB-uz-H0m" firstAttribute="top" secondItem="chE-o0-uJX" secondAttribute="bottom" constant="20" id="NOi-Fu-53S"/>
                             <constraint firstItem="hoY-hX-1Fy" firstAttribute="leading" secondItem="chE-o0-uJX" secondAttribute="trailing" id="Qfr-N7-V2I"/>
                             <constraint firstItem="hV6-g7-40K" firstAttribute="leading" secondItem="chE-o0-uJX" secondAttribute="leading" id="QnJ-Ir-0c0"/>
@@ -399,6 +422,7 @@
                             <constraint firstItem="wYl-cR-4wa" firstAttribute="leading" secondItem="Xcc-Pv-1ev" secondAttribute="trailing" constant="20" id="Ssl-sD-77f"/>
                             <constraint firstItem="wYl-cR-4wa" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Uh4-mr-CHf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vjt-pY-5hF" secondAttribute="trailing" id="VP3-Go-jQH"/>
+                            <constraint firstItem="rmr-WP-ZJ6" firstAttribute="top" secondItem="pXO-ND-2N1" secondAttribute="bottom" constant="5" id="VS5-Ma-isM"/>
                             <constraint firstItem="chE-o0-uJX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zn6-4F-SqK"/>
                             <constraint firstItem="8nL-Ki-U5j" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aD8-a6-0O0"/>
                             <constraint firstItem="QDs-Ry-z4o" firstAttribute="top" secondItem="chE-o0-uJX" secondAttribute="top" id="bUG-N8-NZG"/>
@@ -435,6 +459,7 @@
                         <outlet property="WestLeft" destination="NPz-ck-Sd1" id="w0W-6s-cC0"/>
                         <outlet property="WestRight" destination="S5T-cT-ev9" id="cOm-1Z-HTH"/>
                         <outlet property="WestStraight" destination="yZI-eG-YtD" id="0tQ-Wu-mSH"/>
+                        <outlet property="waitingCars" destination="pXO-ND-2N1" id="IMy-mt-T85"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

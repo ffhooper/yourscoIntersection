@@ -10,6 +10,8 @@ import UIKit
 
 class TrafficViewController: UIViewController {
     
+    @IBOutlet weak var waitingCars: UILabel!
+    
     @IBOutlet weak var NorthStraight: UIView!
     @IBOutlet weak var NorthRight: UIView!
     @IBOutlet weak var NorthLeft: UIView!
@@ -29,6 +31,7 @@ class TrafficViewController: UIViewController {
     var timer = Timer()
     var counter = 0
     var testDangerSignal = UIColor.green
+    var northBoundCars = car(direction: "North", numberWaiting: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +47,9 @@ class TrafficViewController: UIViewController {
     
     /// Set light patten for intersection.
     @objc func setPath() {
+        if counter % 6 == 0 {
+            northBoundCars.numberWaiting += 1
+        }
         print(counter)
         switch counter {
         case 1:
@@ -76,6 +82,15 @@ class TrafficViewController: UIViewController {
             break
         }
         counter += 1
+        
+        // Only allow cars to go on green.
+        if SouthStraight.backgroundColor == UIColor.green {
+            // Prevents negative number of cars waiting.
+            if northBoundCars.numberWaiting > 0 {
+                northBoundCars.numberWaiting -= 1
+            }
+        }
+        waitingCars.text = String(northBoundCars.numberWaiting)
     }
     
     
