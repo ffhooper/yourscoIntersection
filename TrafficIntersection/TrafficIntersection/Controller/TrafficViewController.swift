@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  TrafficViewController.swift
 //  TrafficIntersection
 //
 //  Created by Riley Hooper on 11/20/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TrafficViewController: UIViewController {
     
     @IBOutlet weak var NorthStraight: UIView!
     @IBOutlet weak var NorthRight: UIView!
@@ -28,11 +28,7 @@ class ViewController: UIViewController {
     
     var timer = Timer()
     var counter = 0
-    
-    var northLight: light?
-    var eastLight: light?
-    var southLight: light?
-    var westLight: light?
+    var testDangerSignal = UIColor.green
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,33 +42,34 @@ class ViewController: UIViewController {
         self.timer = Timer.scheduledTimer(timeInterval: 1, target:self, selector: #selector(self.setPath), userInfo: nil, repeats: true)
     }
     
+    /// Set light patten for intersection.
     @objc func setPath() {
         print(counter)
         switch counter {
         case 1:
             // Set Traffic to Left Turn (north bound: true)
-            updateLights(ns: UIColor.red, nr: UIColor.red, nl: UIColor.green, es: UIColor.red, er: UIColor.green, el: UIColor.red, ss: UIColor.red, sr: UIColor.red, sl: UIColor.green, ws: UIColor.red, wr: UIColor.green, wl: UIColor.red)
+            updateLights(ns: .red, nr: .red, nl: .green, es: .red, er: .green, el: .red, ss: .red, sr: .red, sl: .green, ws: .red, wr: .green, wl: .red)
         case 5:
             // Set Traffic to Left Turn Yellow (north bound: true)
-            updateLights(ns: UIColor.red, nr: UIColor.red, nl: UIColor.yellow, es: UIColor.red, er: UIColor.yellow, el: UIColor.red, ss: UIColor.red, sr: UIColor.red, sl: UIColor.yellow, ws: UIColor.red, wr: UIColor.yellow, wl: UIColor.red)
+            updateLights(ns: .red, nr: .red, nl: .yellow, es: .red, er: .yellow, el: .red, ss: .red, sr: .red, sl: .yellow, ws: .red, wr: .yellow, wl: .red)
         case 8:
             // Set Traffic to Straight (north bound: true)
-            updateLights(ns: UIColor.green, nr: UIColor.orange, nl: UIColor.red, es: UIColor.red, er: UIColor.orange, el: UIColor.red, ss: UIColor.green, sr: UIColor.orange, sl: UIColor.red, ws: UIColor.red, wr: UIColor.orange, wl: UIColor.red)
+            updateLights(ns: .green, nr: .orange, nl: .red, es: .red, er: .orange, el: .red, ss: .green, sr: .orange, sl: .red, ws: .red, wr: .orange, wl: testDangerSignal)
         case 14:
             // Set Traffic to Straight Yellow (north bound: true)
-            updateLights(ns: UIColor.yellow, nr: UIColor.yellow, nl: UIColor.red, es: UIColor.red, er: UIColor.yellow, el: UIColor.red, ss: UIColor.yellow, sr: UIColor.yellow, sl: UIColor.red, ws: UIColor.red, wr: UIColor.yellow, wl: UIColor.red)
+            updateLights(ns: .yellow, nr: .yellow, nl: .red, es: .red, er: .yellow, el: .red, ss: .yellow, sr: .yellow, sl: .red, ws: .red, wr: .yellow, wl: .red)
         case 17:
             // Set Traffic to Left Turn (north bound: false)
-            updateLights(ns: UIColor.red, nr: UIColor.green, nl: UIColor.red, es: UIColor.red, er: UIColor.red, el: UIColor.green, ss: UIColor.red, sr: UIColor.green, sl: UIColor.red, ws: UIColor.red, wr: UIColor.red, wl: UIColor.green)
+            updateLights(ns: .red, nr: .green, nl: .red, es: .red, er: .red, el: .green, ss: .red, sr: .green, sl: .red, ws: .red, wr: .red, wl: .green)
         case 21:
             // Set Traffic to Left Turn Yellow (north bound: false)
-            updateLights(ns: UIColor.red, nr: UIColor.yellow, nl: UIColor.red, es: UIColor.red, er: UIColor.red, el: UIColor.yellow, ss: UIColor.red, sr: UIColor.yellow, sl: UIColor.red, ws: UIColor.red, wr: UIColor.red, wl: UIColor.yellow)
+            updateLights(ns: .red, nr: .yellow, nl: .red, es: .red, er: .red, el: .yellow, ss: .red, sr: .yellow, sl: .red, ws: .red, wr: .red, wl: .yellow)
         case 24:
             // Set Traffic to Straight (north bound: false)
-            updateLights(ns: UIColor.red, nr: UIColor.orange, nl: UIColor.red, es: UIColor.green, er: UIColor.orange, el: UIColor.red, ss: UIColor.red, sr: UIColor.orange, sl: UIColor.red, ws: UIColor.green, wr: UIColor.orange, wl: UIColor.red)
+            updateLights(ns: .red, nr: .orange, nl: .red, es: .green, er: .orange, el: .red, ss: .red, sr: .orange, sl: .red, ws: .green, wr: .orange, wl: .red)
         case 30:
             // Set Traffic to Straight Yellow (north bound: false)
-            updateLights(ns: UIColor.red, nr: UIColor.yellow, nl: UIColor.red, es: UIColor.yellow, er: UIColor.yellow, el: UIColor.red, ss: UIColor.red, sr: UIColor.yellow, sl: UIColor.red, ws: UIColor.yellow, wr: UIColor.yellow, wl: UIColor.red)
+            updateLights(ns: .red, nr: .yellow, nl: .red, es: .yellow, er: .yellow, el: .red, ss: .red, sr: .yellow, sl: .red, ws: .yellow, wr: .yellow, wl: .red)
         case 33:
             resetCycle()
         default:
@@ -82,23 +79,27 @@ class ViewController: UIViewController {
     }
     
     
+    /// Update light patten for each step in cycle.
+    ///
+    /// - Parameters:
+    ///   - ns: North straight color.
+    ///   - nr: North right color.
+    ///   - nl: North left color.
+    ///   - es: East straight color.
+    ///   - er: East right color.
+    ///   - el: East left color.
+    ///   - ss: South straight color.
+    ///   - sr: South right color.
+    ///   - sl: South left color.
+    ///   - ws: West straight color.
+    ///   - wr: West right color.
+    ///   - wl: West left color.
     func updateLights(ns: UIColor, nr: UIColor, nl: UIColor, es: UIColor, er: UIColor, el: UIColor, ss: UIColor, sr: UIColor, sl: UIColor, ws: UIColor, wr: UIColor, wl: UIColor) {
-//        guard let north = northLight else {
-//            emergencyStop()
-//            return
-//        }
-//        guard let east = eastLight else {
-//            emergencyStop()
-//            return
-//        }
-//        guard let south = southLight else {
-//            emergencyStop()
-//            return
-//        }
-//        guard let west = westLight else {
-//            emergencyStop()
-//            return
-//        }
+        // MARK: - Safety check. Double check that signals are not crossed.
+        if ns == .green && el == .green { emergencyStop(); return }
+        if ns == .green && sl == .green { emergencyStop(); return }
+        if ns == .green && wl == .green { emergencyStop(); return }
+        // TODO: Build safety check for all directions.
         
         NorthStraight.backgroundColor = ns
         NorthRight.backgroundColor = nr
@@ -117,7 +118,10 @@ class ViewController: UIViewController {
         WestLeft.backgroundColor = wl
     }
     
+    /// Set all signal lights to orange, then restart cycle after 3 seconds.
     func emergencyStop() {
+        testDangerSignal = .red
+        
         NorthStraight.backgroundColor = UIColor.orange
         NorthRight.backgroundColor = UIColor.orange
         NorthLeft.backgroundColor = UIColor.orange

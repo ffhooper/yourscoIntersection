@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C944404F1FC3E20200B6E384 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944404E1FC3E20200B6E384 /* AppDelegate.swift */; };
-		C94440511FC3E20200B6E384 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94440501FC3E20200B6E384 /* ViewController.swift */; };
+		C94440511FC3E20200B6E384 /* TrafficViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94440501FC3E20200B6E384 /* TrafficViewController.swift */; };
 		C94440541FC3E20200B6E384 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94440521FC3E20200B6E384 /* Main.storyboard */; };
 		C94440561FC3E20200B6E384 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C94440551FC3E20200B6E384 /* Assets.xcassets */; };
 		C94440591FC3E20200B6E384 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C94440571FC3E20200B6E384 /* LaunchScreen.storyboard */; };
@@ -37,7 +37,7 @@
 /* Begin PBXFileReference section */
 		C944404B1FC3E20200B6E384 /* TrafficIntersection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrafficIntersection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C944404E1FC3E20200B6E384 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C94440501FC3E20200B6E384 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C94440501FC3E20200B6E384 /* TrafficViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficViewController.swift; sourceTree = "<group>"; };
 		C94440531FC3E20200B6E384 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C94440551FC3E20200B6E384 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C94440581FC3E20200B6E384 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -100,12 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				C944404E1FC3E20200B6E384 /* AppDelegate.swift */,
-				C94440501FC3E20200B6E384 /* ViewController.swift */,
-				C944407C1FC3ED0A00B6E384 /* Light.swift */,
-				C94440521FC3E20200B6E384 /* Main.storyboard */,
 				C94440551FC3E20200B6E384 /* Assets.xcassets */,
 				C94440571FC3E20200B6E384 /* LaunchScreen.storyboard */,
 				C944405A1FC3E20200B6E384 /* Info.plist */,
+				C9B1A75F1FC526B300FD3FFA /* Model */,
+				C9B1A7601FC526BF00FD3FFA /* View */,
+				C9B1A7611FC526C600FD3FFA /* Controller */,
 			);
 			path = TrafficIntersection;
 			sourceTree = "<group>";
@@ -126,6 +126,30 @@
 				C94440701FC3E20200B6E384 /* Info.plist */,
 			);
 			path = TrafficIntersectionUITests;
+			sourceTree = "<group>";
+		};
+		C9B1A75F1FC526B300FD3FFA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C944407C1FC3ED0A00B6E384 /* Light.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C9B1A7601FC526BF00FD3FFA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C94440521FC3E20200B6E384 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C9B1A7611FC526C600FD3FFA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C94440501FC3E20200B6E384 /* TrafficViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,7 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C944407D1FC3ED0A00B6E384 /* Light.swift in Sources */,
-				C94440511FC3E20200B6E384 /* ViewController.swift in Sources */,
+				C94440511FC3E20200B6E384 /* TrafficViewController.swift in Sources */,
 				C944404F1FC3E20200B6E384 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
